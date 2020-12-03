@@ -3,6 +3,7 @@ system 'cls'
 require 'simplecov'
 require 'minitest/autorun'
 require 'minitest/reporters'
+require 'date'
 Minitest::Reporters.use!
 SimpleCov.start
 
@@ -19,6 +20,16 @@ class TodoTest < Minitest::Test
     @list.add(@todo1)
     @list.add(@todo2)
     @list.add(@todo3)
+  end
+
+  def test_no_due_date
+    assert_nil(@todo1.due_date)
+  end
+
+  def test_no_due_date
+    due_date = Date.today + 3
+    @todo2.due_date = due_date
+    assert_equal(due_date, @todo2.due_date)
   end
 
   def test_to_a
