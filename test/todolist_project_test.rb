@@ -1,12 +1,10 @@
 system 'cls'
 
 require 'bundler/setup'
-require 'simplecov'
 require 'minitest/autorun'
 require 'minitest/reporters'
 require 'date'
 Minitest::Reporters.use!
-SimpleCov.start
 
 require_relative '../lib/todolist'
 
